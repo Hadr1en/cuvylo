@@ -1,0 +1,58 @@
+# Publication d'une version : pousser un tag vX.Y.Z (identique à la version de frontend/package.json)
+# construit le paquet d'installation et l'attache à une « Release » GitHub, téléchargeable en zip.
+#   git tag v2.0.0 && git push origin v2.0.0
+# Rien n'est déployé : le paquet est seulement mis à disposition.
+name: Publication d'une version
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Le tag correspond à la version du projet
+        run: |
+          VERSION=$(node -p "require('./frontend/package.json').version")
+          if [ "v$VERSION" != "$GITHUB_REF_NAME" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME ≠ version $VERSION (frontend/package.json)"
+            exit 1
+          fi
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+      - run: npm ci --prefix frontend
+      - run: npm run lint --prefix frontend
+      - run: npm run typecheck --prefix frontend
+      - run: npm test --prefix frontend
+      - run: node scripts/package-release.mjs
+      - name: Archive zip et empreinte
+        run: |
+          mv release "cuvylo-$VERSION"
+          zip -r -9 -X -q "cuvylo-$VERSION.zip" "cuvylo-$VERSION"
+          sha256sum "cuvylo-$VERSION.zip" > "cuvylo-$VERSION.zip.sha256"
+      - name: Notes de version (section du CHANGELOG)
+        run: |
+          {
+            echo "**Installer :** téléchargez \`cuvylo-$VERSION.zip\` ci-dessous, puis suivez \`INSTALLATION.txt\` dans l'archive (hébergement PHP 8.1+ et MySQL, FTP suffit)."
+            echo
+            awk -v v="$VERSION" '$0 ~ "^## \\[" v "\\]" {on=1; next} on && /^## / {exit} on' CHANGELOG.md
+          } | sed "s#](docs/#](https://github.com/$GITHUB_REPOSITORY/blob/$GITHUB_REF_NAME/docs/#g" > notes.md
+      - name: Publication
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" "cuvylo-$VERSION.zip" "cuvylo-$VERSION.zip.sha256" \
+            --title "Cuvylo $VERSION" --notes-file notes.md --verify-tag

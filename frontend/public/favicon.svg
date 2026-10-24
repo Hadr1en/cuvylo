@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Cuvylo">
+  <rect width="64" height="64" rx="14" fill="#13213d"/>
+  <path d="M37.6 19.4A15.5 15.5 0 1 0 37.6 44.6" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+  <path d="M41 26h10M41 32h7M41 38h10" fill="none" stroke="#8fb2f4" stroke-width="4" stroke-linecap="round"/>
+</svg>

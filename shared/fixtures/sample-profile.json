@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "identity": {
+    "firstName": "Camille",
+    "lastName": "Exemple",
+    "headline": "Cheffe de projet digital",
+    "email": "camille.exemple@example.test",
+    "phone": "+33 6 00 00 00 00",
+    "location": "Lille, France"
+  },
+  "links": [
+    { "id": "lnk1", "label": "LinkedIn", "url": "https://www.linkedin.com/in/camille-exemple" },
+    { "id": "lnk2", "label": "Portfolio", "url": "https://camille.example.test" }
+  ],
+  "summary": "Cheffe de projet digital avec 8 ans d'expérience dans la conduite de refontes web et de programmes e-commerce. À l'aise entre équipes techniques et métiers, orientée résultats mesurables.",
+  "experiences": [
+    {
+      "id": "exp1",
+      "title": "Cheffe de projet digital senior",
+      "company": "Société Fictive SA",
+      "location": "Lille",
+      "startDate": "2021-03",
+      "endDate": null,
+      "current": true,
+      "description": "Pilotage du portefeuille de projets web B2B pour 3 filiales européennes.",
+      "achievements": [
+        { "id": "ach1", "text": "Refonte du site e-commerce : +18 % de taux de conversion en 6 mois." },
+        { "id": "ach2", "text": "Mise en place d'une gouvernance agile pour 4 équipes (22 personnes), délais de livraison réduits de 30 %." }
+      ]
+    },
+    {
+      "id": "exp2",
+      "title": "Chargée de projet web",
+      "company": "Agence Imaginaire",
+      "location": "Paris",
+      "startDate": "2017-09",
+      "endDate": "2021-02",
+      "current": false,
+      "description": "Gestion de projets de sites et d'applications pour des clients grands comptes.",
+      "achievements": [
+        { "id": "ach3", "text": "Livraison de 25 projets dans les délais et le budget." }
+      ]
+    }
+  ],
+  "skills": [
+    { "id": "sk1", "category": "Gestion de projet", "kind": "technical", "items": ["Scrum", "Kanban", "Roadmapping", "Budgétisation"] },
+    { "id": "sk2", "category": "Outils", "kind": "technical", "items": ["Jira", "Figma", "Google Analytics", "SQL"] },
+    { "id": "sk3", "category": "Savoir-être", "kind": "soft", "items": ["Communication", "Leadership", "Négociation"] }
+  ],
+  "education": [
+    {
+      "id": "edu1",
+      "degree": "Master Management de l'innovation",
+      "school": "Université Fictive",
+      "location": "Lille",
+      "startDate": "2015-09",
+      "endDate": "2017-06",
+      "description": ""
+    }
+  ],
+  "certifications": [
+    { "id": "cert1", "name": "Professional Scrum Master I", "issuer": "Scrum.org", "date": "2022-05", "url": "" }
+  ],
+  "languages": [
+    { "id": "lang1", "name": "Français", "level": "Langue maternelle" },
+    { "id": "lang2", "name": "Anglais", "level": "Courant (C1)" }
+  ],
+  "sections": [
+    { "key": "summary", "visible": true },
+    { "key": "experiences", "visible": true },
+    { "key": "skills", "visible": true },
+    { "key": "education", "visible": true },
+    { "key": "certifications", "visible": true },
+    { "key": "languages", "visible": true }
+  ]
+}

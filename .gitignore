@@ -1,0 +1,40 @@
+# Secrets & données locales — ne jamais committer
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+backend/storage/
+backend/var/
+*.sqlite
+*.sqlite3
+*.db
+
+# PHP
+backend/vendor/
+.phpunit.cache/
+.phpunit.result.cache
+
+# Node
+node_modules/
+frontend/dist/
+# Paquet de déploiement (scripts/package-release.mjs) : régénéré à chaque version
+release/
+MAINTENANCE
+frontend/coverage/
+frontend/.vite/
+playwright-report/
+test-results/
+
+# Réglages locaux de l'assistant et des outils (chemins absolus propres à la machine)
+.claude/
+
+# Sorties d'exploration et de test locales
+*.out.txt
+backend/var/
+
+# OS / éditeurs
+.DS_Store
+.idea/
+.vscode/
+*.log

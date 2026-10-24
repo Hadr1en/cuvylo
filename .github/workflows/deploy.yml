@@ -1,0 +1,44 @@
+# Déploiement sur l'hébergement mutualisé : UNIQUEMENT à la demande (onglet Actions → Run workflow).
+# Jamais déclenché par un push. Secrets à créer dans Settings → Secrets → Actions :
+#   FTP_HOST, FTP_USER, FTP_PASSWORD (et, si besoin, variables REMOTE_HOME / REMOTE_WWW).
+name: Déploiement FTP (manuel)
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Simulation (rien n’est modifié sur le serveur)'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci --prefix frontend
+      - run: npm test --prefix frontend
+      - run: node scripts/package-release.mjs
+      - run: sudo apt-get update && sudo apt-get install -y lftp
+      - name: Envoi FTPS
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          REMOTE_HOME: ${{ vars.REMOTE_HOME || 'cuvylo' }}
+          REMOTE_WWW: ${{ vars.REMOTE_WWW || 'www' }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+        run: bash scripts/deploy-ftp.sh

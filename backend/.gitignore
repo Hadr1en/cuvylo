@@ -1,0 +1,8 @@
+/vendor/
+/composer.lock
+/.phpunit.cache/
+/.env
+*.sqlite
+/var/schema.version
+/var/*.tmp
+/MAINTENANCE

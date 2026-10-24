@@ -1,0 +1,9 @@
+# Fins de ligne : LF partout (PHP, scripts, YAML) pour des diffs et des déploiements FTP reproductibles.
+* text=auto eol=lf
+
+# Binaires : pas de conversion ni de diff texte.
+*.jpg binary
+*.png binary
+*.woff binary
+*.woff2 binary
+*.pdf binary

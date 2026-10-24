@@ -1,0 +1,4 @@
+# Cuvylo : instance discrète par défaut (pages marquées noindex). Rien à indexer, ni l'API ni les CV partagés.
+# Pour référencer la page publique d'analyse, autoriser /analyser et retirer la balise noindex de index.html.
+User-agent: *
+Disallow: /

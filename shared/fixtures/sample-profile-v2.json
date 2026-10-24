@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 2,
+  "identity": {
+    "firstName": "Camille",
+    "lastName": "Exemple",
+    "headline": "Cheffe de projet cybersécurité",
+    "email": "camille.exemple@example.test",
+    "phone": "+33 6 00 00 00 00",
+    "location": "Lille, France",
+    "details": "Permis B · Mobilité Hauts-de-France",
+    "photo": ""
+  },
+  "links": [
+    { "id": "lnk1", "label": "LinkedIn", "url": "https://www.linkedin.com/in/camille-exemple" }
+  ],
+  "summary": "Cheffe de projet cybersécurité, 9 ans d'expérience entre conseil et grands comptes. Pilotage d'homologations, d'analyses de risques et de déploiements d'outils de sécurité.",
+  "experiences": [
+    {
+      "id": "exp1",
+      "title": "Cheffe de projet sécurité",
+      "company": "Aéroport Fictif",
+      "location": "Lille",
+      "startDate": "2023-10",
+      "endDate": null,
+      "current": true,
+      "description": "Homologation des systèmes de sûreté et suivi des plans d'actions cyber.",
+      "achievements": [
+        { "id": "ach1", "text": "Pilotage de 12 homologations en 18 mois." },
+        { "id": "ach2", "text": "Création des indicateurs du comité de pilotage cyber." }
+      ],
+      "parallel": false,
+      "skills": ["EBIOS RM", "Homologation", "Gestion des risques"],
+      "missions": []
+    },
+    {
+      "id": "exp2",
+      "title": "Consultante cybersécurité",
+      "company": "Cabinet Imaginaire",
+      "location": "Paris",
+      "startDate": "2020",
+      "endDate": "2023",
+      "current": false,
+      "description": "Missions de conseil et de pilotage pour des clients grands comptes.",
+      "achievements": [],
+      "parallel": false,
+      "skills": ["Gestion de projet"],
+      "missions": [
+        {
+          "id": "mis1",
+          "client": "Banque Fictive",
+          "role": "Cheffe de projet PAM",
+          "location": "Paris",
+          "startDate": "2022-05",
+          "endDate": "2023-02",
+          "description": "",
+          "achievements": [{ "id": "ach3", "text": "Déploiement du bastion d'administration sur 4 pays." }],
+          "skills": ["CyberArk", "Active Directory"]
+        },
+        {
+          "id": "mis2",
+          "client": "Distributeur Exemple",
+          "role": "Consultante vulnérabilités",
+          "location": "",
+          "startDate": "2020",
+          "endDate": "2022-04",
+          "description": "",
+          "achievements": [{ "id": "ach4", "text": "Scanner de vulnérabilités déployé dans 64 pays." }],
+          "skills": ["Qualys", "Gestion des vulnérabilités"]
+        }
+      ]
+    },
+    {
+      "id": "exp3",
+      "title": "Rédactrice technologie",
+      "company": "Indépendante",
+      "location": "",
+      "startDate": "2015",
+      "endDate": null,
+      "current": true,
+      "description": "Articles, tests produits et interventions médias sur la cybersécurité.",
+      "achievements": [],
+      "parallel": true,
+      "skills": ["Vulgarisation"],
+      "missions": []
+    }
+  ],
+  "skills": [
+    { "id": "sk1", "category": "Cybersécurité", "kind": "technical", "items": ["EBIOS RM", "CyberArk", "Qualys", "ISO 27001"] },
+    { "id": "sk2", "category": "Savoir-être", "kind": "soft", "items": ["Pédagogie", "Animation de comités"] }
+  ],
+  "education": [
+    { "id": "edu1", "degree": "Licence professionnelle Réseaux et télécoms", "school": "Université Fictive", "location": "", "startDate": "2014", "endDate": "2015", "description": "" }
+  ],
+  "certifications": [
+    { "id": "cert1", "name": "PRINCE2 Foundation", "issuer": "PeopleCert", "date": "2021", "url": "" }
+  ],
+  "languages": [
+    { "id": "lang1", "name": "Anglais", "level": "Courant (C1)" }
+  ],
+  "projects": [
+    { "id": "prj1", "name": "Guide de sensibilisation", "role": "Autrice", "startDate": "2021", "endDate": "", "url": "", "description": "Guide interne diffusé à 3 000 collaborateurs.", "skills": ["Sensibilisation"] }
+  ],
+  "awards": [
+    { "id": "awd1", "title": "Prix du meilleur blog technologie", "issuer": "Concours Exemple", "date": "2015", "description": "" }
+  ],
+  "publications": [
+    { "id": "pub1", "title": "Les rançongiciels expliqués", "outlet": "Magazine Fictif", "date": "2022-03", "url": "", "kind": "article", "description": "" },
+    { "id": "pub2", "title": "Débat sur la sécurité des JO", "outlet": "Chaîne Exemple", "date": "2024", "url": "", "kind": "interview", "description": "" }
+  ],
+  "interests": [
+    { "id": "int1", "text": "Course à pied (semi-marathon)" }
+  ],
+  "customSections": [
+    {
+      "id": "cus1",
+      "title": "Bénévolat",
+      "entries": [
+        { "id": "ce1", "title": "Formatrice", "subtitle": "Association Numérique Exemple", "date": "2019", "description": "Ateliers de sécurité numérique pour seniors." }
+      ]
+    }
+  ],
+  "sections": [
+    { "key": "summary", "visible": true },
+    { "key": "experiences", "visible": true },
+    { "key": "skills", "visible": true },
+    { "key": "education", "visible": true },
+    { "key": "certifications", "visible": true },
+    { "key": "languages", "visible": true },
+    { "key": "projects", "visible": true },
+    { "key": "awards", "visible": true },
+    { "key": "publications", "visible": true },
+    { "key": "interests", "visible": true },
+    { "key": "custom", "customId": "cus1", "visible": true }
+  ]
+}

@@ -1,0 +1,55 @@
+# Cuvylo — racine web (dossier du site, www/). Copié tel quel dans dist/ par Vite.
+# [À VÉRIFIER] sur l'hébergement : mod_rewrite, mod_headers, mod_mime, mod_expires (voir docs/deploiement.md).
+
+Options -Indexes
+
+# Le worker pdf.js est un module .mjs : il doit être servi en JavaScript.
+<IfModule mod_mime.c>
+  AddType text/javascript .mjs .js
+  AddType font/woff2 .woff2
+  AddType font/woff .woff
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  # CSP en mode rapport d'abord : à passer en "Content-Security-Policy" après vérification
+  # en production (aperçu PDF, polices, worker). Voir docs/deploiement.md.
+  Header always set Content-Security-Policy-Report-Only "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' blob:; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+  # Strict-Transport-Security : à activer une fois HTTPS validé (sinon on se verrouille hors du site).
+  # Header always set Strict-Transport-Security "max-age=31536000"
+</IfModule>
+
+# Fichiers cachés (.env, .git…) jamais servis, au cas où l'un d'eux atterrirait ici par erreur.
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# Compression : laissée à l'hébergeur (mod_deflate). Pas de fichiers précompressés .br/.gz : sur certains mutualisés,
+# ils étaient recompressés par le serveur et le navigateur ne pouvait plus les lire (page blanche).
+
+# Assets versionnés par Vite (hash dans le nom) : cache long.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  <FilesMatch "\.(js|mjs|css|woff2?|svg|ttf)$">
+    ExpiresDefault "access plus 1 year"
+  </FilesMatch>
+  <FilesMatch "^index\.html$">
+    ExpiresDefault "access plus 0 seconds"
+  </FilesMatch>
+</IfModule>
+
+# Repli SPA : toute route front (/profil, /cv/xyz…) sert index.html. /api reste au backend PHP.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # security.txt (RFC 9116) : généré par l'API à partir de la configuration (contact, date d'expiration).
+  # Redirection plutôt que réécriture interne : le routeur PHP lit le chemin d'origine de la requête.
+  RewriteRule ^\.well-known/security\.txt$ /api/security-txt [R=302,L]
+
+  RewriteCond %{REQUEST_URI} !^/api/
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ /index.html [L]
+</IfModule>

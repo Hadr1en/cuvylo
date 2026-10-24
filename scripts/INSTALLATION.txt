@@ -1,0 +1,56 @@
+Cuvylo {{VERSION}} — installation sur un hébergement mutualisé
+==============================================================
+
+Il faut : PHP 8.1 ou plus, une base MySQL, un nom de domaine en HTTPS et un accès FTP.
+Rien à configurer à la main : un assistant s'ouvre à la première visite du site.
+
+1. Créer la base de données
+---------------------------
+Dans l'espace client de votre hébergeur, rubrique « Bases de données » : créez une base MySQL.
+Gardez la page ouverte : l'assistant vous demandera l'adresse du serveur (rarement « localhost »),
+le nom de la base, l'utilisateur et son mot de passe.
+
+2. Envoyer les fichiers par FTP (FileZilla…)
+--------------------------------------------
+  - le CONTENU du dossier www/   → dans le dossier du site (souvent www/ ou public_html/, ou le dossier
+                                   racine indiqué pour votre domaine dans l'espace client)
+  - le dossier cuvylo/ en entier → à la racine FTP, À CÔTÉ du dossier du site (pas dedans)
+
+  (racine FTP)/
+  ├─ cuvylo/   src/  migrations/  bin/  …
+  └─ www/      index.html  assets/  api/  .htaccess  …
+
+Envoyez les dossiers avec le client FTP plutôt que fichier par fichier : les fichiers .htaccess
+commencent par un point, sont masqués par le Finder ou l'Explorateur, et le site en a besoin.
+
+3. Ouvrir le site
+-----------------
+Allez sur https://votre-domaine/ : l'assistant d'installation s'affiche. Il vérifie l'hébergement, teste
+la base, crée les tables, votre compte administrateur et la configuration (cuvylo/.env), puis vous connecte.
+Faites-le juste après l'envoi : tant que l'installation n'est pas faite, toute personne qui ouvre le site
+verrait cet assistant.
+
+Ensuite : Administration → « Inscriptions ouvertes » si tout le monde peut créer un compte, ou
+Administration → Inviter pour des comptes sur invitation. L'analyse d'un CV, elle, reste ouverte à tous,
+sans compte.
+
+En cas de problème
+------------------
+  - Page blanche ou « Dossier cuvylo/ introuvable » : cuvylo/ n'est pas à côté du dossier du site.
+  - Pas de cadenas / erreur de certificat : activez le certificat SSL du domaine dans l'espace client.
+  - Testez l'API en ligne de commande avec un identifiant de navigateur : certains pare-feu d'hébergeurs
+    refusent « curl »
+      curl -A "Mozilla/5.0" https://votre-domaine/api/health
+  - Le journal d'erreurs de l'hébergeur (lignes « cuvylo » ou « ModSecurity ») indique toujours la cause.
+Guide détaillé : https://github.com/Hadr1en/cuvylo/blob/main/docs/deploiement.md
+
+Mise à jour vers une version suivante
+-------------------------------------
+Sauvegardez la base, créez un fichier vide cuvylo/MAINTENANCE, remplacez cuvylo/src/, cuvylo/migrations/ et
+cuvylo/bin/ (en gardant cuvylo/.env et cuvylo/var/), supprimez le dossier assets/ du site puis envoyez le
+contenu de www/, et supprimez MAINTENANCE. La base se met à jour toute seule.
+
+Licence
+-------
+PolyForm Noncommercial 1.0.0 (cuvylo/LICENSE.md) : gratuit pour tout usage non commercial.
+Toute utilisation commerciale est interdite sans autorisation.
