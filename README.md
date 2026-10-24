@@ -168,7 +168,7 @@ La CI GitHub rejoue tout sur PHP 8.1 et 8.3, MySQL 5.7 et 8.0. Pousser un tag `v
 
 ## Contribuer
 
-Les contributions sont les bienvenues : forkez, travaillez sur une branche, ouvrez une pull request vers `main` (protégée : CI verte et relecture obligatoires). Mode d'emploi et règles du projet : [CONTRIBUTING.md](CONTRIBUTING.md). Une faille ? [Signalement privé](https://github.com/Hadr1en/cuvylo/security/advisories/new), jamais d'issue publique.
+Les contributions sont les bienvenues : forkez, travaillez sur une branche, ouvrez une pull request vers `main` (protégée : CI verte et relecture obligatoires). Mode d'emploi et règles du projet : [CONTRIBUTING.md](CONTRIBUTING.md) ; échanges encadrés par le [code de conduite](CODE_OF_CONDUCT.md). Une faille ? [Signalement privé](https://github.com/Hadr1en/cuvylo/security/advisories/new), jamais d'issue publique.
 
 ## Documentation
 
