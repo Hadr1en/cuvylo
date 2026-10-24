@@ -166,9 +166,13 @@ cuvylo/
 
 La CI GitHub rejoue tout sur PHP 8.1 et 8.3, MySQL 5.7 et 8.0. Pousser un tag `vX.Y.Z` publie le zip d'installation sur la page Releases.
 
+## Contribuer
+
+Les contributions sont les bienvenues : forkez, travaillez sur une branche, ouvrez une pull request vers `main` (protégée : CI verte et relecture obligatoires). Mode d'emploi et règles du projet : [CONTRIBUTING.md](CONTRIBUTING.md). Une faille ? [Signalement privé](https://github.com/Hadr1en/cuvylo/security/advisories/new), jamais d'issue publique.
+
 ## Documentation
 
-[Déploiement](docs/deploiement.md) · [Sécurité](SECURITY.md) · [Changements](CHANGELOG.md) · [Installation locale](docs/installation.md) · [Tests de bout en bout](docs/tests-e2e.md)
+[Déploiement](docs/deploiement.md) · [Sécurité](SECURITY.md) · [Contribuer](CONTRIBUTING.md) · [Changements](CHANGELOG.md) · [Installation locale](docs/installation.md) · [Tests de bout en bout](docs/tests-e2e.md)
 
 ## Licence
 

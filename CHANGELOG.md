@@ -2,6 +2,10 @@
 
 Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Versionnage sémantique à partir de la 1.0.
 
+## [Non publié]
+
+- Guide de contribution (`CONTRIBUTING.md`), modèles d'issues, signalement privé des failles par GitHub.
+
 ## [2.3.0] — 2026-10-24
 
 ### Ajouté

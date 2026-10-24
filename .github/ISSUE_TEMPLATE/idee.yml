@@ -1,0 +1,22 @@
+name: Proposer une amélioration
+description: Une fonctionnalité, un modèle de CV, une règle d'analyse…
+labels: [enhancement]
+body:
+  - type: textarea
+    id: besoin
+    attributes:
+      label: Le besoin
+      description: Quel problème cela résoudrait-il, et pour qui ?
+    validations:
+      required: true
+  - type: textarea
+    id: proposition
+    attributes:
+      label: Ce que vous proposez
+  - type: checkboxes
+    id: principes
+    attributes:
+      label: Principes du projet
+      options:
+        - label: Ma proposition fonctionne sur un hébergement mutualisé (PHP, MySQL, FTP), sans IA ni service externe.
+          required: true

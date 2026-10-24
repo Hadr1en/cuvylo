@@ -4,6 +4,8 @@
 
 ## Vérifications
 
+<!-- Voir CONTRIBUTING.md. La CI doit être verte avant la relecture. -->
+- [ ] Branche créée depuis `main`, une seule intention par pull request
 - [ ] `cd frontend && npm run lint && npm run typecheck && npm test`
 - [ ] `cd backend && php vendor/bin/phpunit`
 - [ ] `cd frontend && npm run e2e` (si l'interface, l'API ou le PDF changent)

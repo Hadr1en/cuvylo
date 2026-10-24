@@ -3,7 +3,7 @@
 ## Signaler une vulnérabilité
 
 - **Sur une instance en ligne** : utilisez le contact publié par cette instance, page `/securite` ou `/.well-known/security.txt` (RFC 9116, généré à partir de `SECURITY_CONTACT_EMAIL` ou à défaut `LEGAL_CONTACT_EMAIL`).
-- **Dans le code** : le dépôt est privé ; contactez directement son propriétaire.
+- **Dans le code** : utilisez le [signalement privé de GitHub](https://github.com/Hadr1en/cuvylo/security/advisories/new) (onglet *Security* → *Report a vulnerability*). Seul le mainteneur le voit ; n'ouvrez pas d'issue publique.
 
 Dans les deux cas : décrivez le problème, les étapes pour le reproduire et son impact ; aucun ticket public, aucune donnée personnelle réelle dans le rapport, et un délai raisonnable avant toute publication.
 
