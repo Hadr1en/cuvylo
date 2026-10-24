@@ -2,7 +2,7 @@
 
 Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Versionnage sémantique à partir de la 1.0.
 
-## [Non publié]
+## [2.3.1] — 2026-10-24
 
 - Guide de contribution (`CONTRIBUTING.md`), code de conduite (`CODE_OF_CONDUCT.md`), modèles d'issues, signalement privé des failles par GitHub.
 - Aperçu des liens partagés : image, titre et description (Open Graph), icône d'écran d'accueil ; `robots.txt` laisse les réseaux sociaux lire la page d'accueil (l'API et les CV partagés restent exclus, les pages restent en `noindex`).
