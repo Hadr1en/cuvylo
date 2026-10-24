@@ -1,4 +1,6 @@
-# Cuvylo : instance discrète par défaut (pages marquées noindex). Rien à indexer, ni l'API ni les CV partagés.
-# Pour référencer la page publique d'analyse, autoriser /analyser et retirer la balise noindex de index.html.
+# Cuvylo. Les pages portent la balise noindex : les moteurs de recherche ne les indexent pas, mais les réseaux
+# sociaux et messageries peuvent lire la page d'accueil pour afficher l'aperçu d'un lien partagé.
+# Jamais d'exploration de l'API ni des CV partagés.
 User-agent: *
-Disallow: /
+Disallow: /api/
+Disallow: /p/
