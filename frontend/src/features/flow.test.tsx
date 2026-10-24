@@ -127,7 +127,8 @@ describe('parcours principal : connexion → profil → CV → export PDF', () =
     // 4. L'éditeur affiche le CV (copie du profil) et son aperçu
     const title = await screen.findByLabelText('Nom du CV')
     expect(title).toHaveValue('Mon CV')
-    expect(screen.getByTestId('pdf-pages')).toBeInTheDocument()
+    // L'aperçu se monte un instant après le formulaire (chargements à la demande) : on l'attend.
+    expect(await screen.findByTestId('pdf-pages', {}, { timeout: 5000 })).toBeInTheDocument()
     expect(within(screen.getByRole('tabpanel')).getByLabelText('Prénom')).toHaveValue('Camille')
 
     // 5. Export PDF
