@@ -2,6 +2,8 @@
 
 Merci de votre intérêt ! Les contributions sont les bienvenues : corrections, nouveaux modèles de CV, règles d'analyse ATS, traductions, documentation.
 
+En participant, vous vous engagez à respecter le [code de conduite](CODE_OF_CONDUCT.md).
+
 ## En bref
 
 1. **Forkez** le dépôt, puis créez une branche depuis `main` : `fix/…`, `feat/…` ou `docs/…`.
